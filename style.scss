@@ -1,0 +1,87 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #eee;
+  main {
+    padding: 4rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    h1 {
+      color: #3f515b;
+      font-size: 2.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    p {
+      color: #aaa;
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      .generator-button {
+        color: #b67278;
+        font-weight: 600;
+        font-size: inherit;
+        transition: 0.4s ease-out;
+      }
+      :hover {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+      }
+    }
+
+    h4 {
+      color: #aaa;
+      text-transform: uppercase;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .colours {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 1rem;
+      .colour {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+        border-radius: 1rem;
+        color: #fff;
+        background-color: #1e2f42;
+      }
+    }
+
+    .lock-toggle {
+      width: 1.5rem;
+    }
+  }
+}
+
+button,
+input {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+// @media (min-width: 768px) {
+//   .colours {
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+// }
+
+// @media (min-width: 1024px) {
+//   .colours {
+//     grid-template-columns: repeat(4, 1fr);
+//   }
+// } ;
