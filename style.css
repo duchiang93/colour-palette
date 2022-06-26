@@ -11,7 +11,7 @@ body {
 
 body main {
   padding: 4rem 2rem;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -53,8 +53,8 @@ body main h4 {
 body main .colours {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[5];
-      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-columns: (1fr)[1];
+      grid-template-columns: repeat(1, 1fr);
   grid-gap: 1rem;
 }
 
@@ -72,10 +72,59 @@ body main .colours .colour {
   border-radius: 1rem;
   color: #fff;
   background-color: #1e2f42;
+  -webkit-transition: 0.5s ease-out;
+  transition: 0.5s ease-out;
+  border: 2px solid transparent;
+  height: 8vh;
 }
 
-body main .lock-toggle {
-  width: 1.5rem;
+body main .colours .colour input {
+  text-align: center;
+}
+
+body main .colours .lock-toggle {
+  width: 1rem;
+  opacity: 0.5;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+body main .lock-toggle.is-locked {
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  body main .colours {
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+  }
+  body main .colours .colour {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 25vh;
+  }
+  body main .colours .colour input {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  body main .colours {
+    -ms-grid-columns: (1fr)[6];
+        grid-template-columns: repeat(6, 1fr);
+  }
+  body main .colours .colour {
+    height: 60vh;
+  }
 }
 
 button,
@@ -86,9 +135,14 @@ input {
   border: none;
   outline: none;
   background: none;
+  color: inherit;
 }
 
 button {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,3 +1,14 @@
+@mixin pad {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin pc {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -8,7 +19,7 @@ body {
   background-color: #eee;
   main {
     padding: 4rem 2rem;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     h1 {
       color: #3f515b;
@@ -43,7 +54,7 @@ body {
 
     .colours {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(1, 1fr);
       grid-gap: 1rem;
       .colour {
         display: flex;
@@ -53,13 +64,52 @@ body {
         border-radius: 1rem;
         color: #fff;
         background-color: #1e2f42;
+        transition: 0.5s ease-out;
+        border: 2px solid transparent;
+        height: 8vh;
+        input {
+          text-align: center;
+        }
+      }
+      .lock-toggle {
+        width: 1rem;
+        opacity: 0.5;
+        transition: 0.4s;
       }
     }
 
-    .lock-toggle {
-      width: 1.5rem;
+    .lock-toggle.is-locked {
+      opacity: 1;
+    }
+
+    @include pad {
+      .colours {
+        grid-template-columns: repeat(2, 1fr);
+        .colour {
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 25vh;
+          input {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+          }
+        }
+      }
+    }
+    @include pc {
+      .colours {
+        grid-template-columns: repeat(6, 1fr);
+        .colour {
+          height: 60vh;
+        }
+      }
     }
   }
+}
+
+.colour.copied {
+  border: 2px solid #b67278;
 }
 
 button,
@@ -68,20 +118,10 @@ input {
   border: none;
   outline: none;
   background: none;
+  color: inherit;
 }
 
 button {
+  user-select: none;
   cursor: pointer;
 }
-
-// @media (min-width: 768px) {
-//   .colours {
-//     grid-template-columns: repeat(2, 1fr);
-//   }
-// }
-
-// @media (min-width: 1024px) {
-//   .colours {
-//     grid-template-columns: repeat(4, 1fr);
-//   }
-// } ;
