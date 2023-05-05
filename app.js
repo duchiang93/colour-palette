@@ -82,7 +82,6 @@ document.querySelector(".generator-button").addEventListener("click", () => {
 });
 
 document.addEventListener("keydown", (e) => {
-  console.log(e);
   if (e.code.toLowerCase() === "space") {
     e.preventDefault();
     document.querySelector(".generator-button").click();
